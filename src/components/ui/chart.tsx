@@ -109,7 +109,7 @@ type TooltipPayloadItem = {
   dataKey?: string
   value?: number
   color?: string
-  payload?: unknown
+  payload?: { fill?: string } | Record<string, unknown>
 }
 
 function ChartTooltipContent({
@@ -203,7 +203,11 @@ function ChartTooltipContent({
         {payload.map((item, index) => {
           const key = `${nameKey || item.name || item.dataKey || "value"}`
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
-          const indicatorColor = color || item.payload.fill || item.color
+          const payloadFill =
+            item && typeof item === "object" && item.payload && typeof item.payload === "object"
+              ? (item.payload as { fill?: string }).fill
+              : undefined
+          const indicatorColor = color || payloadFill || item.color
 
           return (
             <div
