@@ -285,16 +285,15 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   ]);
 
   const cardStyle = useMemo(
-    () => ({
-      // @ts-expect-error CSS custom props
-      "--icon": iconUrl ? `url(${iconUrl})` : "none",
-      // @ts-expect-error CSS custom props
-      "--grain": grainUrl ? `url(${grainUrl})` : "none",
-      // @ts-expect-error CSS custom props
-      "--behind-gradient": showBehindGradient ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT) : "none",
-      // @ts-expect-error CSS custom props
-      "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
-    }),
+    () => {
+      const vars: Record<string, string> = {
+        "--icon": iconUrl ? `url(${iconUrl})` : "none",
+        "--grain": grainUrl ? `url(${grainUrl})` : "none",
+        "--behind-gradient": showBehindGradient ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT) : "none",
+        "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
+      };
+      return vars as React.CSSProperties;
+    },
     [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
   );
 
@@ -303,7 +302,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   }, [onContactClick]);
 
   return (
-    <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle as React.CSSProperties}>
+    <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
       <section
         ref={cardRef}
         className="pc-card"
