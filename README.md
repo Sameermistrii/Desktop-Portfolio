@@ -1,6 +1,6 @@
 # Use Guide
 
-# Dm For customization + Hosting – 199 rs ( you don't need to do anything ) Instagram @samayan.xo
+# Dm For customization + Hosting – 199 rs ( you don't need to do anything ) Dm https://www.instagram.com/samayan.xo/
 
 This project lets you update most content from the `public/` folder without touching code. Below is what you can change and how to run the app.
 
