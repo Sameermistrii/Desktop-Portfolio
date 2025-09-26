@@ -10,8 +10,6 @@ export type MessageItem = {
 };
 
 export default function MessagesWindow({ open, onClose }: { open: boolean; onClose: () => void }) {
-  if (!open) return null;
-
   const [enter, setEnter] = useState(false);
   useEffect(() => {
     const id = requestAnimationFrame(() => setEnter(true));
@@ -65,6 +63,11 @@ export default function MessagesWindow({ open, onClose }: { open: boolean; onClo
   };
 
   const headerTitle = useMemo(() => " FAQ's", []);
+
+  if (!open) {
+    // Hooks above run unconditionally; render nothing when closed
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 z-[9999]">
