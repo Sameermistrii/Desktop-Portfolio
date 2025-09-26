@@ -20,8 +20,6 @@ type ProjectsWindowProps = {
 const windowStyles = "absolute z-[60] w-[780px] max-w-[90vw] rounded-xl bg-white shadow-xl border border-border";
 
 export function ProjectsWindow({ open, onClose, project, allProjectNames, allProjects }: ProjectsWindowProps) {
-  if (!open) return null;
-
   // enter animation
   const [enter, setEnter] = useState(false);
   useEffect(() => {
@@ -92,6 +90,11 @@ export function ProjectsWindow({ open, onClose, project, allProjectNames, allPro
   };
 
   const projectNames = allProjects ? allProjects.map((p) => p.name) : (allProjectNames || []);
+
+  if (!open) {
+    // Call hooks unconditionally above; render nothing when closed
+    return null;
+  }
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[55]">
