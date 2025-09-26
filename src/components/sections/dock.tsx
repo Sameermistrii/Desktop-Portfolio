@@ -16,7 +16,7 @@ import MessagesWindow from "@/components/windows/messages-window";
 // Constants from design system / observation
 const ICON_BASE_SIZE = 48; // Corresponds to `h-12 w-12`
 const ICON_MAGNIFIED_SIZE = 80;
-const ICON_LIFT_Y = -24;
+const ICON_LIFT_Y: number = -24;
 
 const FramerBadge = () =>
 <a
