@@ -19,14 +19,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [LOADER]
+  // Apply the custom loader only in development to avoid production tracing issues
+  ...(process.env.NODE_ENV === 'development'
+    ? {
+        turbopack: {
+          rules: {
+            "*.{jsx,tsx}": {
+              loaders: [LOADER],
+            },
+          },
+        },
       }
-    }
-  }
+    : {}),
 };
 
 export default nextConfig;
