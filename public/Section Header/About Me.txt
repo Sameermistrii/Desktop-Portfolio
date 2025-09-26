@@ -1,0 +1,9 @@
+About Me
+
+Edit this file to update the About Me section shown in the Section Header.
+
+Suggested outline:
+- Short bio
+- Skills / tools
+- Interests
+- Contact preference

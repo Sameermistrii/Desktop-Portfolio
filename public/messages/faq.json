@@ -1,0 +1,27 @@
+[
+  {
+    "q": "What kind of designer are you?",
+    "a": "One who balances precision with playfulness. I love clean, intuitive interfaces with unexpected, delightful details.",
+    "icon": "star"
+  },
+  {
+    "q": "What inspires your design style?",
+    "a": "A mix of bold visual storytelling and functional simplicity. I'm drawn to unconventional layouts, color theory experiments, and user‑centric accessibility.",
+    "icon": null
+  },
+  {
+    "q": "What's your design process like?",
+    "a": "Discover → Define → Design → Deliver. I prototype early, test often, and iterate with clear documentation.",
+    "icon": null
+  },
+  {
+    "q": "How do you handle creative blocks?",
+    "a": "I step back, sketch on paper, and explore visual references. Constraints usually unlock momentum.",
+    "icon": null
+  },
+  {
+    "q": "Favorite kind of project to work on?",
+    "a": "Interactive product experiences and playful websites that blend aesthetics with performance.",
+    "icon": null
+  }
+]

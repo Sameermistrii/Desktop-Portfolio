@@ -1,0 +1,13 @@
+{
+  "title": "To do:",
+  "items": [
+    { "text": "Build A Startup ", "done": false },
+    { "text": "Drink water", "done": false },
+    { "text": "Wasting Time", "done": true },
+    { "text": "Finish grad school without losing my mind", "done": true },
+    { "text": "Build that banger spotify playlist", "done": false },
+    { "text": "World domination", "done": false },
+    { "text": "Get really good at making myself fool", "done": true },
+    { "text": "Travel somewhere new every year", "done": false }
+  ]
+}
