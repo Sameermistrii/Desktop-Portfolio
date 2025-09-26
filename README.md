@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Use Guide
 
-## Getting Started
+This project lets you update most content from the `public/` folder without touching code. Below is what you can change and how to run the app.
 
-First, run the development server:
+## How to run (Terminal)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Using npm:
+1. Install deps: `npm install`
+2. Start dev server: `npm run dev`
+3. Build for production: `npm run build`
+4. Run production server: `npm start`
+5. Lint: `npm run lint`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Notes:
+- Dev server: http://localhost:3000
+- If you prefer pnpm or bun:
+  - pnpm: `pnpm install` → `pnpm dev` → `pnpm build` → `pnpm start`
+  - bun: `bun install` → `bun run dev` → `bun run build` → `bun run start`
+- If you change files in `public/`, refresh the browser. For deployed builds, rebuild/redeploy.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editable content (public/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+These folders/files are safe to edit and are read by the app at runtime:
 
-## Learn More
+### 1) Contact (Header Contact link)
+- File: `public/Section Header/contact.json`
+- Format:
+  ```json
+  { "email": "your-email@example.com" }
+  ```
+- Behavior: The header Contact link opens Gmail compose in a new tab using your email.
 
-To learn more about Next.js, take a look at the following resources:
+### 2) Messages (FAQ)
+- File: `public/messages/faq.json`
+- Format: Array of items
+  ```json
+  [
+    { "q": "Question?", "a": "Answer.", "icon": "star" }
+  ]
+  ```
+- Tip: Keep valid JSON; remove `icon` or set `null` if not needed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3) Gallery
+- Folder: `public/gallery/`
+- Action: Add/replace images (PNG/JPG/SVG). Filenames are read directly.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4) Projects
+- Folder: `public/projects/`
+- Each project has its own folder (e.g., `Project 01`, `Project 02`, ...).
+- Action: Place project images/assets inside each project folder. Use readable names.
 
-## Deploy on Vercel
+### 5) About Me
+- Folder: `public/about-me/`
+- Action: Update images/text assets that the About window reads.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 6) Contact Info
+- Folder: `public/contact-info/`
+- Action: Update images/text assets for contact details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 7) Shortcuts (Dock/desktop quick links)
+- Folder: `public/shortcuts/`
+- Action: Add or update shortcut assets/icons as used by the UI.
+
+### 8) To‑Do
+- Folder: `public/to-do/`
+- Action: Add default note assets/content if applicable. (The draggable note position resets on refresh.)
+
+### 9) Desktop Files
+- Folder: `public/Desktop/`
+- Action: Add files/images that appear scattered on the desktop area.
+
+### 10) Favicon
+- File: `src/app/favicon.ico`
+- Action: Replace to change the browser tab icon. Hard refresh to bypass cache.
+
+## Tips & Troubleshooting
+- Use simple filenames (letters, numbers, dashes, spaces).
+- For images, prefer PNG/JPG/SVG.
+- If changes don’t show up:
+  - Hard refresh: Ctrl/Cmd+Shift+R
+  - Clear cache or try a private window
+  - For production, re-run `npm run build` and redeploy
+- Validate JSON when editing `.json` files.
